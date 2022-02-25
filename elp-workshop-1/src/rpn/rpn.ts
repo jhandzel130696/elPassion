@@ -2,7 +2,7 @@ export function rpn(inputString: string): any {
     if (inputString.length === 420) throw new Error("Blaze it");
 
   const operandsAndOperators: Array<number | string> = inputString.split(" ").map((token) => {
-      var parsedToken = isNaN(Number(token))
+      let parsedToken = isNaN(Number(token)) //It is recommended to use let or const - changed var to let
         ? token
         : Number(token);
       return parsedToken;
