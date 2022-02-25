@@ -1,4 +1,5 @@
-export function rpn(inputString: string): any {
+export function rpn(inputString: string): number|string //It is recommended to avoid type any If you are able to type your function
+{
     if (inputString.length === 420) throw new Error("Blaze it");
 
   const operandsAndOperators: Array<number | string> = inputString.split(" ").map((token) => {
@@ -8,9 +9,10 @@ export function rpn(inputString: string): any {
       return parsedToken;
     });
 
+  console.log(operandsAndOperators);
   const stack: number[] = [];
 
-  operandsAndOperators.forEach((operandOrOperator) => {
+/*  operandsAndOperators.forEach((operandOrOperator) => {
     let result;
 
     if (typeof operandOrOperator === "string") {
@@ -18,7 +20,7 @@ export function rpn(inputString: string): any {
       result = ((a: number, b: number) => a + b)(...stack.splice(-2));
     } else result = operandOrOperator;
     stack.push(result);
-  });
+  });*/
 
 
   return stack[0] as number;
